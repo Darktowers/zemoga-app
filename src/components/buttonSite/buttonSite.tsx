@@ -6,6 +6,6 @@ export interface ButtonSiteProps {
 }
 export const ButtonSite = ({ handleClick, children }: ButtonSiteProps) => {
   return (
-    <button onClick={handleClick} >{children}</button>
+    <button className="buttonSite" onClick={handleClick} >{children}</button>
   );
 }

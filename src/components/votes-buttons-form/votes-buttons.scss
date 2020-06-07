@@ -1,0 +1,19 @@
+.votesButtons {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    .voteButton {
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+        border-radius: inherit;
+        border: none;
+        margin-right: .5em;
+        cursor: pointer;
+        &:focus {
+            border-radius: inherit;
+            outline-style: solid;
+            outline-color: white;
+        }
+    }
+}

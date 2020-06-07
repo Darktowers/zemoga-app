@@ -9,4 +9,5 @@ export interface Vote {
         likes: number;
         dislikes: number;
     }
+    moreInfo: string;
 }

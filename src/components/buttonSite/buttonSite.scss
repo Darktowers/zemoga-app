@@ -1,0 +1,13 @@
+.buttonSite{
+    border: none;
+    background: inherit;
+    color: white; 
+    border: 1px solid white;
+    padding: .8em 1.3em;
+    cursor: pointer;
+    &:focus {
+        border-radius: inherit;
+        outline-style: solid;
+        outline-color: white;
+    }
+}

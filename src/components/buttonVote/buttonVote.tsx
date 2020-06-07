@@ -11,7 +11,7 @@ export interface ButtonVoteProps {
 }
 export const ButtonVote = ({ handleClick, type, active = false, size = '1x' }: ButtonVoteProps) => {
   return (
-    <button onClick={handleClick} className={(active? 'active': '')}>
+    <button onClick={handleClick} className={`${active ? 'active ' : ''} ${type} ${handleClick ? '' : ' tooltip'}  voteButton`} >
       {type === 'like' ?
         <FontAwesomeIcon icon={faThumbsUp} size={size} />
         :

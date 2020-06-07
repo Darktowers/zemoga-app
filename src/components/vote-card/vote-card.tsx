@@ -8,11 +8,10 @@ import { VotesService } from '../../services/votes/votes.service';
 
 export interface VoteProps {
     vote: Vote,
-    alreadyVote?: boolean,
 }
 
-export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
-    const [voteStatus, setVoteStatus] = useState(alreadyVote);
+export const VoteCard = ({ vote }: VoteProps) => {
+    const [voteStatus, setVoteStatus] = useState(false);
     const [actualWinner, setActualWinner] = useState('dislikes');
     const [likesPercent, setLikesPercent] = useState(0);
     const [disLikesPercent, setDisLikesPercent] = useState(0);
@@ -27,8 +26,10 @@ export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
     const proccessPercents = useCallback(async () => {
         let { likes, dislikes } = vote.votes;
         const votes: any = await votesService.getVotesByID(vote.id);
-        likes += votes.likes;
-        dislikes += votes.dislikes;
+        if (votes) {
+            likes += votes.likes;
+            dislikes += votes.dislikes;
+        }
         const total = likes + dislikes;
         const dislikesPercent = (dislikes * 100) / total;
         const likesPercent = (likes * 100) / total;
@@ -42,6 +43,7 @@ export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
 
     return (
         <div className="voteCard">
+            <div className="voteCard-overlay"></div>
             <figure className="voteCard-image">
                 <img className="voteCard-image-src" src={vote.image} alt={vote.name} />
             </figure>
@@ -56,32 +58,38 @@ export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
                     </div>
                     <h3 className="voteCard-content-famous-name">{vote.name}</h3>
                 </div>
-                <p className="voteCard-content-date">{vote.date} in {vote.type}</p>
                 <div className="voteCard-content-votes">
+                    <p className="voteCard-content-votes-date"><b>{vote.date}</b> in {vote.type}</p>
                     {voteStatus === false ?
                         <>
-                            <p className="voteCard-content-description">{vote.description}</p>
-                            <VotesButtons id={vote.id} handleClick={() => {proccessPercents(); alreadyVoteStatus() } } />
+                            <p className="voteCard-content-votes-description">{vote.description}</p>
+                            <VotesButtons id={vote.id} handleClick={() => { proccessPercents(); alreadyVoteStatus() }} />
                         </>
                         :
                         <>
-                            <p className="voteCard-content-description">Thanks for voting!</p>
-                            <ButtonSite handleClick={voteAgain}>Vote Again</ButtonSite>
+                            <p className="voteCard-content-votes-description">Thanks for voting!</p>
+                            <div className="voteCard-content-votes-container">
+                                <ButtonSite handleClick={voteAgain}>Vote Again</ButtonSite>
+                            </div>
                         </>
                     }
                 </div>
             </div>
             <div className="voteCard-percents">
-                <div className="voteCard-percents-slider dislikes" style={{ width: `${disLikesPercent}%` }}>
-                    <div className="voteCard-percemts-slider-data">
-                        <ButtonVote type={'dislike'} size="2x" />
-                        <p>{disLikesPercent}%</p>
+                <div className="voteCard-percents-slider likes" style={{ width: `${likesPercent}%` }}>
+                    <div className="voteCard-percents-slider-data ">
+                        <div className="data">
+                            <ButtonVote type={'like'} size="2x" />
+                            <p><span className="data-number">{likesPercent}</span> <span className="data-percent">%</span></p>
+                        </div>
                     </div>
                 </div>
-                <div className="voteCard-percents-slider likes" style={{ width: `${likesPercent}%` }}>
-                    <div className="voteCard-percemts-slider-data">
-                        <ButtonVote type={'like'} size="2x" />
-                        <p>{likesPercent}%</p>
+                <div className="voteCard-percents-slider dislikes last" style={{ width: `${disLikesPercent}%` }}>
+                    <div className="voteCard-percents-slider-data">
+                        <div className="data">
+                            <p><span className="data-number">{disLikesPercent}</span> <span className="data-percent">%</span></p>
+                            <ButtonVote type={'dislike'} size="2x" />
+                        </div>
                     </div>
                 </div>
             </div>

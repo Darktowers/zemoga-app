@@ -1,0 +1,54 @@
+[
+    {
+        "id": "1",
+        "date": "1 month ago",
+        "image": "/image4.jpg",
+        "name": "Kanye West",
+        "description": "Lorem ipsum asdff asdfasdfasd fasdf asdfsadfsadfasd fasdf",
+        "type": "Entertainment",
+        "votes": {
+            "dislikes": 100,
+            "likes": 250
+        },
+        "moreInfo": "https://en.wikipedia.org/wiki/Kanye_West"
+    },
+    {
+        "id": "2",
+        "date": "1 month ago",
+        "image": "/image3.jpg",
+        "name": "Mark Zuckerberg",
+        "description": "Lorem ipsum asdff asdfasdfasd fasdf asdfsadfsadfasd fasdf",
+        "type": "Entertainment",
+        "votes": {
+            "dislikes": 10,
+            "likes": 300
+        },
+        "moreInfo": "https://en.wikipedia.org/wiki/Kanye_West"
+    },
+    {
+        "id": "3",
+        "date": "1 month ago",
+        "image": "/image2.jpg",
+        "name": "Cristina Fernández de Kirchner",
+        "description": "Lorem ipsum asdff asdfasdfasd fasdf asdfsadfsadfasd fasdf",
+        "type": "Entertainment",
+        "votes": {
+            "dislikes": 100,
+            "likes": 50
+        },
+        "moreInfo": "https://en.wikipedia.org/wiki/Kanye_West"
+    },
+    {
+        "id": "4",
+        "date": "1 month ago",
+        "image": "/image1.jpg",
+        "name": "Malala Yousafzai",
+        "description": "Lorem ipsum asdff asdfasdfasd fasdf asdfsadfsadfasd fasdf",
+        "type": "Entertainment",
+        "votes": {
+            "dislikes": 100,
+            "likes": 50
+        },
+        "moreInfo": "https://en.wikipedia.org/wiki/Kanye_West"
+    }
+]

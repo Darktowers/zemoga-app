@@ -22,7 +22,7 @@ export const VotesButtons = ({ handleClick, id }: ButtonSiteProps) => {
     setVoteStatus(type)
   }
   return (
-    <div>
+    <div className="votesButtons">
       <ButtonVote type={'like'} handleClick={() => { setVote('like') }} active={voteStatus === 'like'} />
       <ButtonVote type={'dislike'} handleClick={() => { setVote('dislike') }} active={voteStatus === 'dislike'} />
       <ButtonSite handleClick={saveVote} >Vote Now</ButtonSite>

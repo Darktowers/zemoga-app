@@ -1,18 +1,6 @@
 /* -> colors definition*/
-$blue-pwr: #00aeef;
-$blue: #035aa5;
-$black: #000;
-$black-2: #17171c;
-$silver: #a3aaae;
-$white: #ffffff;
-$orange: #f4a03f;
-$green: #5dbc47;
-$gray: #616169;
-$dark-green: #00aeef33;
-/* colors definition ->*/
-/*Backgrounds*/
-$background-card: #17171c 0% 0% no-repeat padding-box;
-// Mixin Shadows
+$like: #1cbbb4;
+$dislike: #ffad1d;
 @mixin shadows {
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 174, 239, 1);
   -moz-box-shadow: 0px 0px 7px 0px rgba(0, 174, 239, 1);

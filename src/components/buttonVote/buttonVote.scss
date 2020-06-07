@@ -1,0 +1,30 @@
+@import "../../styles/colors/colors";
+
+button {
+    border: none;
+    color: white;
+    border-radius: inherit;
+}
+
+.tooltip {
+    outline: none;
+    padding: .7em .8em;
+    margin-right: .5em;
+
+    svg {
+        font-size: 1.3em;
+    }
+}
+
+.like {
+    background: $like;
+}
+
+.dislike {
+    background: $dislike;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+}

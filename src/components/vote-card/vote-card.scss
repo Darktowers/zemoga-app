@@ -1,4 +1,136 @@
 @import '../../styles/colors/colors';
-.votes {
-  background: red;
+
+.voteCard {
+  max-width: 490px;
+  min-height: 550px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 16px;
+  margin: 1em;
+  width: 100%;
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: linear-gradient(transparent 30%, #0000009e 74%);
+    z-index: -1;
+  }
+  &-image {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+
+    &-src {
+      height: 100%;
+      max-width: inherit;
+    }
+  }
+
+  &-content {
+    color: white;
+    align-self: end;
+    margin-bottom: 2em;
+    &-famous {
+      display: flex;
+      align-items: center;
+      align-items: flex-end;
+      &-status {
+        button {
+          margin-bottom: .3em;
+        }
+      }
+      &-name {
+        font-size: 45px;
+        line-height: 1;
+        max-width: 400px;
+      }
+    }
+
+    &-votes {
+      margin-left: 3em;
+
+      &-container {
+        margin-top: 2.5em;
+      }
+
+      &-date {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        margin: .5em 0;
+        margin-bottom: 1em;
+      }
+
+      &-description {
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 1em;
+        max-width: 330px;
+      }
+    }
+  }
+
+  &-percents {
+    display: flex;
+    width: 100%;
+
+    &-slider {
+      height: 50px;
+      display: flex;
+      align-items: center;
+
+      &:last-child {
+        text-align: right;
+      }
+
+      &.likes {
+        background: rgba($like, 0.7);
+      }
+
+      &.dislikes {
+        background: rgba($dislike, 0.7);
+      }
+
+      &.last {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+
+      .data {
+        display: flex;
+
+        &-number {
+          font-size: 30px;
+        }
+
+        &-percent {
+          font-size: 18px;
+          margin-top: .6em;
+          margin-left: 0;
+        }
+
+        p {
+          line-height: 1;
+          color: white;
+          display: flex;
+          align-items: center;
+          font-weight: 300;
+        }
+
+        button {
+          margin: 0;
+          background: inherit;
+
+          svg {
+            font-size: 2.3em;
+          }
+        }
+      }
+    }
+  }
 }
