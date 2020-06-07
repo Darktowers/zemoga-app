@@ -1,0 +1,2 @@
+(this.webpackJsonpvotesapp=this.webpackJsonpvotesapp||[]).push([[4],{54:function(e,t,a){"use strict";a.r(t);var n=a(0),l=a.n(n),s=a(16);t.default=function(){return l.a.createElement(l.a.Fragment,null,l.a.createElement(s.a,null,l.a.createElement("title",null,"Not Found")),l.a.createElement("section",{className:"hero is-fullheight"},l.a.createElement("div",{className:"hero-body"},l.a.createElement("div",{className:"container"},l.a.createElement("h1",{className:"title"},"Not Found")))))}}}]);
+//# sourceMappingURL=4.45f2de79.chunk.js.map
