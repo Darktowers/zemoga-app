@@ -1,1 +1,119 @@
 @import '../../styles/colors/colors';
+
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#212121, transparent);
+    z-index: 1;
+
+    &-container {
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+        max-width: 1020px;
+        justify-content: space-between;
+        color: white;
+        min-height: 100px;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+            min-height: 60px;
+            margin-left: 1em;
+        }
+    }
+
+    &-logo {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        &-span {
+            font-size: 30px;
+        }
+    }
+
+    &-open {
+        display: none;
+        position: absolute;
+        right: 1em;
+        font-size: 1.5em;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+        }
+    }
+
+    &-navigation {
+        transition: all .3s ease-in-out;
+
+        &.open {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .close {
+            display: none;
+
+            @media screen and (max-width: 768px) {
+                display: flex;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+                font-size: 1.5em;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            transform: translateX(100vw);
+            position: fixed;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background: white;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            color: black;
+            align-items: center;
+            justify-content: center;
+
+            &-ul {
+                display: flex;
+                flex-direction: column;
+
+                &-item {
+                    a {
+                        color: black !important;
+                        font-size: 18px;
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+
+        &-ul {
+            display: flex;
+
+            &-item {
+                a {
+                    color: white;
+                    margin: 1em;
+                    font-weight: 300;
+                    transition: all .3s ease-in-out;
+                    text-decoration: none;
+                    border-bottom: 1px solid transparent;
+
+                    &:hover {
+                        border-bottom: 1px solid white;
+                    }
+                }
+            }
+        }
+    }
+}

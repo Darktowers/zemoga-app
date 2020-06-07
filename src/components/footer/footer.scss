@@ -1,1 +1,66 @@
-@import "../../styles/colors/colors";
+@import '../../styles/colors/colors';
+
+.footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    padding: 0;
+    padding-top: 1em;
+    &-container {
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+        max-width: 1020px;
+        justify-content: space-between;
+        color: black;
+        min-height: 60px;
+        align-items: center;
+        flex-direction: row-reverse;
+        border-top: 1px dotted black;
+        
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &-social {
+        display: flex;
+        align-items: center;
+        a {
+            text-decoration: none;
+            color: inherit;
+            margin-left: .5em;
+            font-size: 2em;
+        }
+
+        &-span {
+            font-size: 30px;
+        }
+    }
+
+    &-navigation {
+        &-ul {
+            display: flex;
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            &-item {
+                a {
+                    color: black;
+                    margin: 1em;
+                    font-weight: 300;
+                    transition: all .3s ease-in-out;
+                    text-decoration: none;
+                    border-bottom: 1px solid transparent;
+
+                    &:hover {
+                        border-bottom: 1px solid black;
+                    }
+                }
+            }
+        }
+    }
+}

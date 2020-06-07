@@ -4,7 +4,11 @@ import './home.scss'
 import { Banner } from '../../components/banner/banner';
 import { ButtonSite } from '../../components/buttonSite/buttonSite';
 import { HighLigthSection } from '../../containers/high-light/high-light';
+import { Helmet } from 'react-helmet-async';
 const Home = () => (<>
+  <Helmet>
+    <title>Home</title>
+  </Helmet>
   <HighLigthSection />
   <div className="container wrap">
     <Banner close={true}>

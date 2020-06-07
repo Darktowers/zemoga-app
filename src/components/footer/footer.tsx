@@ -1,24 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./footer.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-export interface FooterProps {
-  description?: string;
-  description2?: string;
-}
+const Footer = () => {
+  return <>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-social">
+          <p>Follow Us</p>
+          <a target="_blanc" href="https://www.facebook.com/">
+            <FontAwesomeIcon icon={faFacebook} /> 
+          </a>
+          <a target="_blanc" href="https://twitter.com/">
+            <FontAwesomeIcon icon={faTwitter} /> 
+          </a>
+        </div>
+        <nav className="footer-navigation">
+          <ul className="footer-navigation-ul">
+            <li className="footer-navigation-ul-item">
+              <Link to="/terms" className="footer-navigation-ul-item-url">Terms and conditions</Link>
+            </li>
+            <li className="footer-navigation-ul-item">
+              <Link to="/privacy" className="footer-navigation-ul-item-url">Privacy Policy</Link>
+            </li>
+            <li className="footer-navigation-ul-item">
+              <Link to="/contact-us" className="footer-navigation-ul-item-url">Contact Us</Link>
+            </li>
 
-export const Footer = (props: FooterProps) => (
-  <div className="Footer">
-    <div className="Footer-logo">
-      <a className="Footer-logo_img" href="/">
-      </a>
-      <div className="Footer-logo_text">
-        <p>{props.description}</p>
-        <p> {props.description2}</p>
+          </ul>
+        </nav>
       </div>
-    </div>
-    <div className="Footer-media">
-      <div className="Footer-media_icon">
-      </div>
-    </div>
-  </div>
-);
+    </footer>
+
+  </>
+};
+
+export default Footer

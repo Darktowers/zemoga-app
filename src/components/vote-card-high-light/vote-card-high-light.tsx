@@ -39,7 +39,7 @@ export const VoteCardHighLight = ({ vote }: VoteProps) => {
                                 <FontAwesomeIcon icon={faWikipediaW} />
                                 <a className="voteCardH-content-votes-link" target="_blanc" href={vote.moreInfo}> More information</a>
                             </div>
-                            <p><br/><b>What's yor veredict?</b></p>
+                            <p><br/><b>What's your verdict?</b></p>
                             <VotesButtonsHighLight id={vote.id} handleClick={() => { alreadyVoteStatus() }} />
                         </>
                         :
