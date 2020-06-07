@@ -3,30 +3,39 @@ import './vote-card.scss'
 import { Vote } from '../../models/vote';
 import { ButtonSite } from '../buttonSite/buttonSite';
 import { ButtonVote } from '../buttonVote/buttonVote';
+import { VotesButtons } from '../votes-buttons-form/votes-buttons';
+import { VotesService } from '../../services/votes/votes.service';
 
 export interface VoteProps {
     vote: Vote,
     alreadyVote?: boolean,
 }
+
 export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
     const [voteStatus, setVoteStatus] = useState(alreadyVote);
     const [actualWinner, setActualWinner] = useState('dislikes');
     const [likesPercent, setLikesPercent] = useState(0);
     const [disLikesPercent, setDisLikesPercent] = useState(0);
+    const votesService = new VotesService();
+
     const voteAgain = () => {
+        setVoteStatus(false);
+    }
+    const alreadyVoteStatus = () => {
         setVoteStatus(true);
     }
-
-    const proccessPercents = useCallback(() => {
-        const { likes, dislikes } = vote.votes;
+    const proccessPercents = useCallback(async () => {
+        let { likes, dislikes } = vote.votes;
+        const votes: any = await votesService.getVotesByID(vote.id);
+        likes += votes.likes;
+        dislikes += votes.dislikes;
         const total = likes + dislikes;
         const dislikesPercent = (dislikes * 100) / total;
         const likesPercent = (likes * 100) / total;
         setDisLikesPercent(Math.round(dislikesPercent));
         setLikesPercent(Math.round(likesPercent));
         setActualWinner(likes > dislikes ? 'likes' : 'dislikes');
-    }, [vote]);
-
+    }, [vote, votesService]);
     useEffect(() => {
         proccessPercents();
     }, [vote, proccessPercents]);
@@ -49,10 +58,10 @@ export const VoteCard = ({ vote, alreadyVote }: VoteProps) => {
                 </div>
                 <p className="voteCard-content-date">{vote.date} in {vote.type}</p>
                 <div className="voteCard-content-votes">
-                    {voteStatus ?
+                    {voteStatus === false ?
                         <>
                             <p className="voteCard-content-description">{vote.description}</p>
-                            <p>Vote Component</p>
+                            <VotesButtons id={vote.id} handleClick={() => {proccessPercents(); alreadyVoteStatus() } } />
                         </>
                         :
                         <>
