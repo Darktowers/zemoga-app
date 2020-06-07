@@ -2,10 +2,11 @@ import React from 'react'
 import './buttonSite.scss'
 export interface ButtonSiteProps {
   handleClick?: any,
-  children: any
+  children: any,
+  black?: boolean
 }
-export const ButtonSite = ({ handleClick, children }: ButtonSiteProps) => {
+export const ButtonSite = ({ handleClick, children, black = false }: ButtonSiteProps) => {
   return (
-    <button className="buttonSite" onClick={handleClick} >{children}</button>
+    <button className={`buttonSite ${black ? 'black' : ''}`} onClick={handleClick} >{children}</button>
   );
 }

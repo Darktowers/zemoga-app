@@ -1,0 +1,44 @@
+@import "../../styles/colors/colors";
+
+.votesButtonsH {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+
+    .voteButton {
+        font-size: 20px;
+        width: 50%;
+        border-radius: inherit;
+        border: none;
+        cursor: pointer;
+        min-height: 80px;
+        @media screen and (max-width: 768px) {
+            min-height: 60px;
+        }
+        &:focus {
+            border-radius: inherit;
+            outline-style: solid;
+            outline-color: white;
+        }
+
+        svg {
+            font-size: 2em;
+
+            @media screen and (max-width: 768px) {
+                font-size: 1.5em;
+            }
+        }
+
+        &.like {
+            background: rgba($like, 0.9) !important;
+        }
+
+        &.dislike {
+            background: rgba($dislike, 0.9) !important;
+        }
+    }
+}

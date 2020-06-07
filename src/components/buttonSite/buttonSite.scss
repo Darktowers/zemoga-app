@@ -1,4 +1,14 @@
 .buttonSite{
+    &.black {
+        color: black; 
+        border: 1px solid black;
+        padding: .8em 1.3em;
+        &:focus {
+            border-radius: inherit;
+            outline-style: solid;
+            outline-color: black;
+        }
+    }
     border: none;
     background: inherit;
     color: white; 

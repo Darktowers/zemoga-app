@@ -10,4 +10,5 @@ export interface Vote {
         dislikes: number;
     }
     moreInfo: string;
+    closing?: string;
 }
